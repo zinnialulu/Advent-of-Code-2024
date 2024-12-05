@@ -85,4 +85,4 @@ for row in range(1,len(matrix)-1):
                 sum_part2+=1
 print(f"part2 answer: {sum_part2}")
 
-#option 2: check all 3x3 mini matrix
+#option 2: check all 3x3 mini matrix (abandoned)
