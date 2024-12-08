@@ -104,8 +104,6 @@ sum=0
 matrix[6][3]="#"
 loop=False
 loop_count=0
-for i in range(len())
-
 while out==False:
     (x,y,out,dir)=turtle_up(x,y,out,dir)
     if (x,y,dir) in position:

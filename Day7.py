@@ -3,6 +3,8 @@ file=open('day7.txt','r')
 lines=file.readlines()
 
 def check(value:int, numlist:list):
+    if value==0 and len(numlist)!=0:
+        return False
     if len(numlist)==0:
         return value==0
     if value%numlist[-1]==0: #if last operator is a "*"
@@ -13,12 +15,11 @@ def check(value:int, numlist:list):
             return True
     v_str=str(value)
     l=len(str(numlist[-1]))
-    if v_str[(-l):]==str(numlist[-1]):        #if last operator is a "||" fking elephant reeeee, last x digits to numlist[-1]
+    if str(v_str[(-l):])==str(numlist[-1]):        #if last operator is a "||" fking elephant reeeee, last x digits to numlist[-1]
         #new value= value-numlist[-1] / (10**l)
-        if check(((value-numlist[-1])/(10**l)),numlist[:-1]):
+        if check(int((value-numlist[-1])//(10**l)),numlist[:-1]):
             return True
     return False
-
 
 
 
@@ -39,8 +40,3 @@ for line in lines:
         #print(f"{value}: {num}")
         sum+=value
 print(sum)
-
-
-
-
-
