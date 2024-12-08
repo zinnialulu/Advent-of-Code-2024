@@ -99,34 +99,67 @@ def turtle_left(x,y,out,dir):
 out=False
 x=start_x
 y=start_y
-position=[]
+position=[(start_x,start_y,'up')]
 sum=0
+matrix[6][3]="#"
+loop=False
+loop_count=0
+for i in range(len())
+
 while out==False:
     (x,y,out,dir)=turtle_up(x,y,out,dir)
     if (x,y,dir) in position:
         sum+=1
         loop=True
+    if loop==True:
+        loop_count+=1
+        print('it is a loop')
         break
     position.append((x,y,dir))
     print(x,y,out,dir)
+    print(position)
     if out==True:
         break
     (x,y,out,dir)=turtle_right(x,y,out,dir)
+    if (x,y,dir) in position:
+        sum+=1
+        loop=True
+    if loop==True:
+        loop_count+=1
+        print('it is a loop')
+        break
     position.append((x,y,dir))
     print(x,y,out,dir)
+    print(position)
     if out==True:
         break
     (x,y,out,dir)=turtle_down(x,y,out,dir)
+    if (x,y,dir) in position:
+        sum+=1
+        loop=True
+    if loop==True:
+        loop_count+=1
+        print('it is a loop')
+        break
     position.append((x,y,dir))
     print(x,y,out,dir)
+    print(position)
     if out==True:
         break
     (x,y,out,dir)=turtle_left(x,y,out,dir)
+    if (x,y,dir) in position:
+        sum+=1
+        loop=True
+    if loop==True:
+        loop_count+=1
+        print('it is a loop')
+        break
     position.append((x,y,dir))
     print(x,y,out,dir)
+    print(position)
     if out==True:
         break
-
+print(f"loop count is {loop_count}")
 
 
 
