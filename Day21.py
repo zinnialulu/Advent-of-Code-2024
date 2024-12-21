@@ -48,16 +48,19 @@ def robot_2(a,b):
     if a=="A" and b=="<":
         path="v<<A"
     else:
-        if y<=0:
-            if x<=0:
-                path="^"*abs(y)+">"*abs(x)+"A"
-            else:
-                path="<"*x+"^"*abs(y)+"A"
+        if b=="A" and a=="<":
+            path=">>^A"
         else:
-            if x<=0:
-                path="v"*y+">"*abs(x)+"A"
+            if y<=0:
+                if x<=0:
+                    path="^"*abs(y)+">"*abs(x)+"A"
+                else:
+                    path="<"*x+"^"*abs(y)+"A"
             else:
-                path="<"*x+"v"*y+"A"
+                if x<=0:
+                    path="v"*y+">"*abs(x)+"A"
+                else:
+                    path="<"*x+"v"*y+"A"
     return path
 
 #s='A179A'
@@ -87,3 +90,28 @@ for i in day21:
     print(f"third robot path is {r3}")
     print(f"{l} {nb}")
 print(f"part 1 answer is: {part_1}")
+
+part_2=0
+mul=25
+
+def remote_robot(t:str):
+    o=""
+    for n in range(len(t)-1):
+        o+=robot_2(t[n],t[n+1])
+    o="A"+o
+    return o
+
+for i in day21:
+    s="A"+i
+    r=""
+    for n in range(len(s)-1):
+        r+=robot_1(s[n],s[n+1])
+    r="A"+r
+    for cnt in range(mul):
+        r=remote_robot(r)
+        print(cnt,len(r))
+    l=len(r)
+    nb=int(i[0:3])
+    prod=l*nb
+    part_2+=prod
+    print(f"{i}: length is {l} number is {nb} and prod is {prod}")
