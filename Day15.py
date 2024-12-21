@@ -40,11 +40,11 @@ def move(position,direction:str):
             return (x,y-1)
         else: #if meet box
             for i in range((y-1),-1,-1):
-                if map[x][i]==".":
+                if map[x][i]==".": #exchange space with first box position
                     map[x][i]="O"
                     map[x][y-1]="."
-                    return (x,y-1)
-                elif map[x][i]=="#":
+                    return (x,y-1) #move robot
+                elif map[x][i]=="#": #if meet wall before space, dont move and go on for next instruction
                     return (x,y)
     if direction == "^":
         if map[x-1][y]=="#": #if encounter wall
